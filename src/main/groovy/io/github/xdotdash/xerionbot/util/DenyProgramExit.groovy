@@ -1,6 +1,7 @@
 package io.github.xdotdash.xerionbot.util
 
 import org.kohsuke.groovy.sandbox.GroovyValueFilter
+import org.kohsuke.groovy.sandbox.GroovyInterceptor.Invoker
 
 class DenyProgramExit extends GroovyValueFilter {
 
