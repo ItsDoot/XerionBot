@@ -1,8 +1,8 @@
 package io.github.xdotdash.xerionbot.command
 
+import io.github.xdotdash.xerionbot.XerionBot
 import io.github.xdotdash.xerionbot.util.ScriptingUtil
 import net.dv8tion.jda.core.MessageBuilder
-import net.dv8tion.jda.core.Permission
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent
 import net.dv8tion.jda.core.hooks.SubscribeEvent
 
@@ -33,7 +33,7 @@ class EvalCommand extends Command {
 
     @SubscribeEvent
     void onCommand(GuildMessageReceivedEvent event) {
-        if (!event.member.hasPermission(Permission.ADMINISTRATOR)) {
+        if (!XerionBot.INSTANCE.config.allowedUserIds.contains(event.member.user.id)) {
             return
         }
 

@@ -9,13 +9,13 @@ class ScriptingUtil {
     static Binding generateBinding(GuildMessageReceivedEvent event) {
         Binding binding = new Binding()
 
-        binding.setVariable("event", event)
-        binding.setVariable("author", event.author)
-        binding.setVariable("channel", event.channel)
-        binding.setVariable("guild", event.guild)
-        binding.setVariable("jda", event.getJDA())
-        binding.setVariable("member", event.member)
-        binding.setVariable("message", event.message)
+        binding.event = event
+        binding.author = event.author
+        binding.channel = event.channel
+        binding.guild = event.guild
+        binding.jda = event.getJDA()
+        binding.member = event.member
+        binding.message = event.message
 
         return binding
     }
@@ -25,5 +25,6 @@ class ScriptingUtil {
 
     static {
         new DenyTokenAccess().register()
+        new DenyProgramExit().register()
     }
 }

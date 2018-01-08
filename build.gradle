@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'io.github.xdotdash'
-version '1.0-SNAPSHOT'
+version '1.0.0'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -24,6 +24,7 @@ dependencies {
 
     shade 'net.dv8tion:JDA:3.4.0_317'
     shade 'org.kohsuke:groovy-sandbox:1.15'
+    shade 'ninja.leaping.configurate:configurate-hocon:3.3'
 }
 
 
