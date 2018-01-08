@@ -1,0 +1,37 @@
+plugins {
+    id 'groovy'
+}
+
+group 'io.github.xdotdash'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+configurations {
+    shade
+    compile.extendsFrom shade
+}
+
+
+dependencies {
+    shade 'org.codehaus.groovy:groovy-all:2.3.11'
+
+    shade 'net.dv8tion:JDA:3.4.0_317'
+    shade 'org.kohsuke:groovy-sandbox:1.15'
+}
+
+
+jar {
+    configurations.shade.copyRecursive().setTransitive(true).each { artifact ->
+        from (zipTree(artifact))
+    }
+    manifest {
+        attributes 'Main-Class': 'io.github.xdotdash.xerionbot.XerionBot'
+    }
+}
